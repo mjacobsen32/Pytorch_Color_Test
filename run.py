@@ -31,8 +31,8 @@ def multi(mod_str, net, f_string, runs, save_kernels, batch, lr, epochs, ds):
     counter = 0
     for i in range(runs):
         train_set, val_set, _ = torch.utils.data.random_split(dataset=ds, lengths=[8500, 1500, 0]) 
-        train_loader = torch.utils.data.DataLoader(train_set, batch_size=batch[0])
-        val_loader = torch.utils.data.DataLoader(val_set, batch_size=batch[0])
+        train_loader = torch.utils.data.DataLoader(train_set, batch_size=batch)
+        val_loader = torch.utils.data.DataLoader(val_set, batch_size=batch)
         
         torch.seed()
         model = net().to("cpu")
@@ -41,7 +41,7 @@ def multi(mod_str, net, f_string, runs, save_kernels, batch, lr, epochs, ds):
         ### More hyper parameters for the model, not specified in main.py
         ###
         loss_fn = torch.nn.CrossEntropyLoss()
-        optimizer = torch.optim.Adam(model.parameters(), lr=lr[0])
+        optimizer = torch.optim.Adam(model.parameters(), lr=lr)
         sched = torch.optim.lr_scheduler.StepLR(optimizer, 10, 0.1)
         
         stored_accs.append(run(lr=lr, batch=batch, mod_str=mod_str, model=model, loss_fn=loss_fn, optimizer=optimizer, 
