@@ -1,6 +1,8 @@
 import torch
 
-
+'''
+    Model with 1 kernel of size (1x1)
+'''
 class NeuralNetwork_1_1(torch.nn.Module):
     def __init__(self):
         super(NeuralNetwork_1_1, self).__init__()

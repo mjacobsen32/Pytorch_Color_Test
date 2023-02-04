@@ -1,6 +1,9 @@
 import torch
 
 
+'''
+    Model with 3 kernels of shape (3x3)
+'''
 class NeuralNetwork_3_3(torch.nn.Module):
     def __init__(self):
         super(NeuralNetwork_3_3, self).__init__()

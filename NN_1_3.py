@@ -1,9 +1,9 @@
 import torch
 
 
-# torch.nn.Dropout(p=0.1, inplace=True)
-# torch.nn.MaxPool2d(3)
-
+'''
+    Model with 1 kernel of shape (3x3)
+'''
 class NeuralNetwork_1_3(torch.nn.Module):
     def __init__(self):
         super(NeuralNetwork_1_3, self).__init__()
