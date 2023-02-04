@@ -24,7 +24,14 @@ def run(model, ds, m):
 ds = Dataset(3000)
 batch = 8
 # list of models to test
-l = ["perfect_1_3.pt"]
+l = ["perfect_1_3.pt",
+     "One_Kernel_(3X3)_0.pt",
+     "One_Kernel_(3X3)_1.pt",
+     "One_Kernel_(3X3)_2.pt",
+     "One_Kernel_(3X3)_3.pt",
+     "One_Kernel_(3X3)_4.pt",
+     "One_Kernel_(3X3)_5.pt",
+     "One_Kernel_(3X3)_6.pt"]
 
 # loaded model 
 mod = NeuralNetwork_1_3()
@@ -33,7 +40,7 @@ for idx, m in enumerate(l):
     mod.load_state_dict(torch.load("./models/"+m))
     run(mod, ds, m)
     
-l = ["perfect_3_3.pt"]
+l = ["perfect_3_3.pt","Three_Kernel_(3X3)_0.pt","Three_Kernel_(3X3)_1.pt","Three_Kernel_(3X3)_2.pt","Three_Kernel_(3X3)_3.pt","Three_Kernel_(3X3)_4.pt","Three_Kernel_(3X3)_5.pt","Three_Kernel_(3X3)_6.pt"]
 mod = NeuralNetwork_3_3()
 for idx, m in enumerate(l):
     print("\n\n{} ACCURACY:\n".format(m))
