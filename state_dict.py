@@ -5,7 +5,6 @@ from dataset import CustomImageDataset as Dataset
 from NN_1_3 import NeuralNetwork_1_3
 from NN_3_3 import NeuralNetwork_3_3
 from perfect_3_3 import getNN_3_3_Perfect
-from perfect_1_3 import getNN_1_3_Perfect
 
 
 '''
@@ -51,12 +50,13 @@ def predict(model):
     save the model at the end (really only if you import
     the newly created perfect model)
 '''
-def main():x
+def main():
+    l = ["RBGperfect_1_3.pt","BGRperfect_1_3.pt"]
+    
     m2 = getNN_3_3_Perfect() # LOADS IN A NEWLY CREATED PERFECT 3_3 model
-    m1 = getNN_1_3_Perfect() # LOADS IN A NEWLY CREATED PERFECT 1_3 model
-    show_model(m1)
+    #m2 = NeuralNetwork_3_3()
     show_model(m2)
-    #predict(m2)
-    #torch.save(m2.state_dict(), "./models/perfect_3_3.pt")
+    predict(m2)
+    torch.save(m2.state_dict(), "./models/perfect_3_3.pt")
     
 main()
