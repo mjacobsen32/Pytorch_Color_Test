@@ -5,6 +5,17 @@ import matplotlib.pyplot as plt
 from torchvision import utils
 import torchvision
 
+'''
+    utility functions
+'''
+
+
+'''
+    Originally used to print a matrix of different models testing with 
+    different learnign rates and batch size. Not used anymore because
+    I found the most accurate learning rate to start at 0.01 and the most
+    accurate batch size was consistently 8
+'''
 def print_mat(mat, lr, bs):
     print("batch_size:\t", end='')
     for b in bs: print("{}\t".format(b), end="")
@@ -15,12 +26,21 @@ def print_mat(mat, lr, bs):
         for acc in row:
             print("{:.2f}\t".format(acc), end="")
         print("")
-        
+
+
+'''
+    Print the model parameters
+'''
 def print_model_weights(model):
     layer = model['fc1']
     print(layer.weight.data[0])
     print(layer.bias.data[0])
     
+    
+'''
+    This function prints out the learned kernel weights
+    in the form of a heat map. Pass in the file name to save too
+'''
 def visTensor(tensor, ch=0, nrow=3, padding=1, fname=None):
     images = []
     for filter in tensor:
