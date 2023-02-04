@@ -1,6 +1,13 @@
 import torch
 from NN_3_3 import NeuralNetwork_3_3
 
+
+'''
+    Manual creation and setting of weights and biases of a model with
+    3 kernels of shape (3x3). This model is 100% accurate and does
+    not require bias leveraging. Instead it just uses a single multiplier
+    weight whether the pixel has a value or not.
+'''
 def getNN_3_3_Perfect() -> NeuralNetwork_3_3:
     model = NeuralNetwork_3_3()
     features_0_weights = torch.zeros([3,3,3,3])

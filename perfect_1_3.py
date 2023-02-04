@@ -1,6 +1,12 @@
 import torch
 from NN_1_3 import NeuralNetwork_1_3
 
+'''
+    Manually creating a model and manaully assigning weights and biases
+    These weights and biases create a 100% accurate model of 1 kernel with
+    shape (3x3). It leverages the biases to weight each channel independently
+    100% accuracy is not possible without the biases designed this way
+'''
 def getNN_1_3_Perfect() -> NeuralNetwork_1_3:
     model = NeuralNetwork_1_3()
     features_0_weights = torch.zeros([1,3,3,3])
